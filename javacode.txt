@@ -1,0 +1,54 @@
+package safe;
+
+import java.util.Scanner;
+
+interface Bank
+{
+	void createAccount();
+	void deposite();
+	void withDraw();
+	void balCheck();
+}
+
+public class mainClass implements Bank {
+	int bal,accnumber;
+	String name;
+	public void createAccount()
+	{  
+		Scanner sc=new Scanner(System.in);
+		accnumber=sc.nextInt();
+		name=sc.next();
+		 bal=sc.nextInt();
+	}
+
+	@Override
+	public void deposite() {
+		Scanner sd=new Scanner(System.in);// TODO Auto-generated method stub
+		int dep=sd.nextInt();
+		bal=bal+dep;
+	}
+
+	@Override
+	public void withDraw() {
+		Scanner sw=new Scanner(System.in);// TODO Auto-generated method stub
+		int wit=sw.nextInt();
+		bal=bal-wit;
+	}
+
+	@Override
+	public void balCheck() {
+		// TODO Auto-generated method stub
+		System.out.println("The name of the account holder is:"+name );
+		System.out.println("The account number of the account allocated is:"+accnumber);
+		System.out.println("The balence of the account  is:"+bal);
+	}
+public class jaffa
+	{
+	public static void main(String[] args) {
+	Bank b=new mainClass();
+	b.createAccount();
+	b.deposite();
+	b.balCheck();
+}
+}
+}
